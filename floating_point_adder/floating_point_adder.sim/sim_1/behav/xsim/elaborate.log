@@ -6,16 +6,4 @@ Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package xil_defaultlib.FloatingPointPkg
-Compiling module xil_defaultlib.fp_sorter
-Compiling module xil_defaultlib.fp_aligment
-Compiling module xil_defaultlib.fp_sum_significands
-Compiling module xil_defaultlib.fp_leading_zeros
-Compiling module xil_defaultlib.fp_normalize
-Compiling module xil_defaultlib.fp_adder
-Compiling module xil_defaultlib.fp_adder_tb
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot fp_adder_tb_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
