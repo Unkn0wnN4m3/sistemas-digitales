@@ -89,7 +89,7 @@ module mealy_fsm_detector(
                 case (data_in)
                     2'b10: begin
                         next_state = q0;
-                        data_out = 2'b01;  // ¡Secuencia completa detectada!
+                        data_out = 2'b01; // final output siganl
                     end
                     2'b00, 2'b01, 2'b11: begin
                         next_state = q0;
