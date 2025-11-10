@@ -52,7 +52,7 @@ control_unit U_CTRL(
 mux_2x1_16b U_MUX_CNT({12'b0, N}, wcnt_dec, wsel_cnt, wcnt_main);
 registro_16b U_REG_CNT(wcnt_main, wen_cnt_main, CLK, RST, wcnt_main);
 decrementador U_DEC_CNT(wcnt_main, wcnt_dec);
-comparador_zero U_COMP_MAIN(wcnt_dec, wcomp_pad);
+comparador_zero U_COMP_MAIN(wcnt_main, wcomp_pad);
 
 // ============================================================================
 // SUBSISTEMA PADOVAN

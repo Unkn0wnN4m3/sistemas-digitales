@@ -91,35 +91,35 @@ always @(*) begin
         end
         
         INIT: begin
-            sel_cnt = 0;
-            en_cnt_main = 1;
+            sel_cnt = 0;          // Cargar N en el contador
+            en_cnt_main = 1;      // Habilitar carga
             if (oper == 0) begin
-                en_r1_pad = 1;
+                en_r1_pad = 1;    // Inicializar registros Padovan
                 en_r2_pad = 1;
                 en_r3_pad = 1;
             end else begin
-                en_acc_mos = 1;
+                en_acc_mos = 1;   // Inicializar Moser
                 en_cnt_mos = 1;
             end
         end
         
         PADOVAN: begin
-            sel_cnt = 1;
-            en_cnt_main = 1;
-            en_r1_pad = 1;
+            sel_cnt = 1;          // Seleccionar valor decrementado
+            en_cnt_main = 1;      // Habilitar actualización
+            en_r1_pad = 1;        // Habilitar registros
             en_r2_pad = 1;
             en_r3_pad = 1;
         end
         
         MOSER: begin
-            sel_cnt = 1;
-            en_cnt_main = 1;
-            en_acc_mos = 1;
-            en_cnt_mos = 1;
+            sel_cnt = 1;          // Seleccionar valor decrementado
+            en_cnt_main = 1;      // Habilitar actualización
+            en_acc_mos = 1;       // Habilitar acumulador
+            en_cnt_mos = 1;       // Habilitar contador interno
         end
         
         DONE: begin
-            finish = 1;
+            finish = 1;           // Señal de finalización
         end
     endcase
 end
