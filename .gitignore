@@ -5,3 +5,5 @@ eq_comp_1/
 resources/
 tri_state/
 basic_sequential/
+debouncing/
+edge_detector/
