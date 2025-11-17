@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "../../../../../../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef" \
+"../../../../activity4.srcs/sources_1/new/SecretCodeDoorLock.sv" \
+"../../../../activity4.srcs/sources_1/new/main.sv" \
+"../../../../activity4.srcs/sources_1/new/x7segmux.sv" \
+"../../../../activity4.srcs/sim_1/new/SecretCodeDoorLock_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
