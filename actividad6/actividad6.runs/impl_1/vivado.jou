@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Wed Nov 26 13:29:32 2025
+# Process ID         : 21352
+# Current directory  : C:/Users/thisi/Documents/School/Semestre2026-1/SistemasAvanzados/vivado/actividad6/actividad6.runs/impl_1
+# Command line       : vivado.exe -log main.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source main.tcl -notrace
+# Log file           : C:/Users/thisi/Documents/School/Semestre2026-1/SistemasAvanzados/vivado/actividad6/actividad6.runs/impl_1/main.vdi
+# Journal file       : C:/Users/thisi/Documents/School/Semestre2026-1/SistemasAvanzados/vivado/actividad6/actividad6.runs/impl_1\vivado.jou
+# Running On         : HAKMCHN
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 5 4600H with Radeon Graphics         
+# CPU Frequency      : 2994 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16505 MB
+# Swap memory        : 2281 MB
+# Total Virtual      : 18787 MB
+# Available Virtual  : 4452 MB
+#-----------------------------------------------------------
+source main.tcl -notrace
