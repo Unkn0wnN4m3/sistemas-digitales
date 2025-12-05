@@ -1,59 +1,52 @@
 `timescale 1ns / 1ps
 
-module main (
+module main(
     input logic clk,
-    input logic rst,
-    input logic [2:0] buttons,
-    input logic [7:0] switches,
-    output logic [3:0] an,
-    output logic [6:0] sseg
-    );
+    input logic reset,
+    input logic [7:0] switches,   // SW[7:0] - Define secret code
+    input logic btn_0,            // Button for digit "0"
+    input logic btn_1,            // Button for digit "1"
+    input logic btn_2,            // Button for digit "2"
+    output logic led_correct,     // LED[0] - code correct
+    output logic led_incorrect,   // LED[1] - code incorrect
+    output logic [3:0] an,        // 7-segment anodes
+    output logic [6:0] sseg       // 7-segment cathodes
+);
 
-    logic [1:0] led_status;
-    logic [3:0] display_hex3, display_hex2, display_hex1, display_hex0;
-
-    // Instancia del módulo de la cerradura
-    SecretCodeDoorLock lock_inst (
+    // Internal signals
+    logic [3:0] result;
+    logic [3:0] hex3, hex2, hex1, hex0;
+    logic [3:0] dp_in;
+    
+    // Instantiate door lock FSM
+    door_lock door_fsm (
         .clk(clk),
-        .rst(rst),
-        .buttons(buttons),
+        .reset(reset),
         .switches(switches),
-        .led(led_status)
+        .btn_0(btn_0),
+        .btn_1(btn_1),
+        .btn_2(btn_2),
+        .led_correct(led_correct),
+        .led_incorrect(led_incorrect),
+        .result(result)
     );
-
-    // Lógica para determinar qué mostrar en los displays
-    always_comb begin
-        case (led_status)
-            2'b01: begin // Código Correcto: Muestra "PASS"
-                display_hex3 = 4'hA; // P
-                display_hex2 = 4'hA; // A
-                display_hex1 = 4'h5; // S
-                display_hex0 = 4'h5; // S
-            end
-            2'b10: begin // Código Incorrecto: Muestra "ERR"
-                display_hex3 = 4'hE; // E
-                display_hex2 = 4'hF; // r (usando un valor no estándar, se puede ajustar)
-                display_hex1 = 4'hF; // r
-                display_hex0 = 4'hF; // Apagado
-            end
-            default: begin // Estado inicial o intermedio: Displays apagados
-                display_hex3 = 4'hF;
-                display_hex2 = 4'hF;
-                display_hex1 = 4'hF;
-                display_hex0 = 4'hF;
-            end
-        endcase
-    end
-
-    // Instancia del controlador de los displays de 7 segmentos
-    x7segmux display_inst (
+    
+    // Configure 7-segment displays
+    assign hex0 = result;      // Show result on rightmost display
+    assign hex1 = 4'hF;        // Blank
+    assign hex2 = 4'hF;        // Blank
+    assign hex3 = 4'hF;        // Blank
+    assign dp_in = 4'b0000;    // No decimal points
+    
+    // Instantiate 7-segment display multiplexer
+    x7segmux seg_display (
         .clk(clk),
-        .reset(rst),
-        .hex3(display_hex3),
-        .hex2(display_hex2),
-        .hex1(display_hex1),
-        .hex0(display_hex0),
-        .dp_in(4'b0000), // Puntos decimales no utilizados
+        .reset(reset),
+        .hex3(hex3),
+        .hex2(hex2),
+        .hex1(hex1),
+        .hex0(hex0),
+        .dp_in(dp_in),
         .an(an),
         .sseg(sseg)
     );

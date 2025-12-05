@@ -88,6 +88,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc C:/Users/thisi/Documents/School/Semestre2026-1/SistemasAvanzados/vivado/contraints/activity4/Basys-3-Master.xdc
+set_property used_in_implementation false [get_files C:/Users/thisi/Documents/School/Semestre2026-1/SistemasAvanzados/vivado/contraints/activity4/Basys-3-Master.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental C:/Users/thisi/Documents/School/Semestre2026-1/SistemasAvanzados/vivado/activity4/activity4.srcs/utils_1/imports/synth_1/SecretCodeDoorLock.dcp

@@ -9,7 +9,7 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.SecretCodeDoorLock
+Compiling module xil_defaultlib.door_lock
 Compiling module xil_defaultlib.x7segmux
 Compiling module xil_defaultlib.main
 Compiling module xil_defaultlib.main_tb

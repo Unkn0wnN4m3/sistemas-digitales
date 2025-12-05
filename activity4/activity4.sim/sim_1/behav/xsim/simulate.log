@@ -1,6 +1,12 @@
 Time resolution is 1 ps
-Caso de prueba 1: Código Correcto
-Prueba 1: Se espera el mensaje 'PASS' en los displays.
-Caso de prueba 2: Código Incorrecto
-Prueba 2: Se espera el mensaje 'ERR' en los displays.
-$stop called at time : 420 ns : File "C:/Users/thisi/Documents/School/Semestre2026-1/SistemasAvanzados/vivado/activity4/activity4.srcs/sim_1/new/SecretCodeDoorLock_tb.sv" Line 67
+========================================
+Starting Door Lock System Testbench
+========================================
+Time=0 | State: LEDs[C=x I=x] | AN=0111 | SSEG=0001110
+Time=5000 | State: LEDs[C=0 I=0] | AN=0111 | SSEG=0001110
+
+--- TEST 1: Correct Code ---
+Time=100000 | State: LEDs[C=0 I=0] | AN=1110 | SSEG=0001110
+Secret code set: 10-00-01-10
+Entering code: 10-00-01-10
+Time=695000 | State: LEDs[C=1 I=0] | AN=1110 | SSEG=1111001
